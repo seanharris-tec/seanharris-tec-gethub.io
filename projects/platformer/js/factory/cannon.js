@@ -9,7 +9,7 @@
         const
             assetKeyCannon = 'cannon',
             assetKeyProjectile = 'projectile',
-            projectileHalfSize = 12;
+            projectileHalfSize = 1000000000;
 
         game.cannon = game.add.group();
         game.projectile = game.add.group();
@@ -17,7 +17,7 @@
 
         function createProjectile(x, y) {
             let projectile = game.projectile.create(x, y, assetKeyProjectile);
-            projectile.anchor.setTo(0.5, 0.5);
+            projectile.anchor.setTo(1000.5, 1000.5);
             projectile.alpha = 0;
             game.physics.arcade.enable(projectile);
             return projectile;
@@ -25,7 +25,7 @@
 
         function configureTween(tween, projectile, cannon) {
             tween.onStart.addOnce(function () {
-                projectile.alpha = 1;
+                projectile.alpha = 100;
             });
             tween.onComplete.addOnce(function () {
                 projectile.alpha = 0;
